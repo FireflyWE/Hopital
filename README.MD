@@ -5,6 +5,7 @@ web basée sur Spring MVC qui permet de gérer les patients d'un hopital en impl
 <i>Afficher les patients, faire la pagination, chercher un patient et supprimer un patient.</i></p>
 <h2>Architecture du projet</h2>
 <img src="captures/cap1.png">
+<h2>Partie 1:</h2>
 <h2>Notre classe Patient</h2>
 <img src="captures/cap2.png">
 <h2>Implementation H2 et MySQL</h2>
@@ -25,3 +26,11 @@ web basée sur Spring MVC qui permet de gérer les patients d'un hopital en impl
 <img src="captures/cap9.png">
 <h2>Tentative du suppression</h2>
 <img src="captures/cap10.png">
+<h2>Partie 2:</h2>
+<h2>Création des templates</h2>
+<img src="captures/sc1.png">
+<h2>Validation</h2>
+<img src="captures/sc2.png">
+<h2>Les interfaces avec les templates crées</h2>
+<img src="captures/sc3.png">
+<img src="captures/sc4.png">
