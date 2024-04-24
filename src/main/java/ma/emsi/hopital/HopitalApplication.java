@@ -28,7 +28,7 @@ public class HopitalApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//method ajout 1 without args
-		Patient patient1=new Patient();
+		/*Patient patient1=new Patient();
 		patient1.setId(null);
 		patient1.setNom("Yamcha");
 		patient1.setDateNaissance(new Date());
@@ -47,9 +47,9 @@ public class HopitalApplication implements CommandLineRunner {
 				.malade(false)
 				.score(110)
 				.build();
-		patientRepository.save(patient3);
+		patientRepository.save(patient3);*/
 	}
-	@Bean
+	//@Bean
 	CommandLineRunner commandLineRunner(JdbcUserDetailsManager jdbcUserDetailsManager){
 		PasswordEncoder passwordEncoder = passwordEncoder();
 		return args -> {
@@ -59,6 +59,24 @@ public class HopitalApplication implements CommandLineRunner {
 					User.withUsername("user22").password(passwordEncoder.encode("1234")).roles("USER").build());
 				jdbcUserDetailsManager.createUser(
 					User.withUsername("admin2").password(passwordEncoder.encode("1234")).roles("ADMIN","USER").build());
+
+		};
+	}
+
+	@Bean
+	CommandLineRunner commandLineRunnerDetails(AccountService accountService){
+		return args -> {
+			accountService.addRole("USER");
+			accountService.addRole("ADMIN");
+			accountService.addNewUser("user1", "1234", "user1@gmail.com", "1234");
+			accountService.addNewUser("user2", "1234", "user2@gmail.com", "1234");
+			accountService.addNewUser("admin", "1234", "admin@gmail.com", "1234");
+
+
+			accountService.addRoleToUser("user1", "USER");
+			accountService.addRoleToUser("user2", "USER");
+			accountService.addRoleToUser("admin", "USER");
+			accountService.addRoleToUser("admin", "ADMIN");
 
 		};
 	}
